@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lecturer - Dashboard</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="dashboard.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="dashboard-container">
+      <!-- SIDEBAR ------------------------------------------>
+      <aside class="sidebar">
+        <div class="logo">
+          <h2><i class="fa-solid fa-graduation-cap"></i> UniLex</h2>
+        </div>
+        <ul class="nav-links"></ul>
+        <div class="logout-section">
+          <a href="login.html" class="log">
+            <button class="logout-btn">
+              <i class="fa-solid fa-right-from-bracket"></i> Logout
+            </button>
+          </a>
+        </div>
+      </aside>
+
+      <!-- MAIN CONTENT ---->
+      <main class="main-content">
+        <!-- HEADER ------------------------------------------>
+        <header>
+          <div class="navii">
+            <span></span>
+            <p class="top">Placeholder</p>
+          </div>
+          <div>
+            <div class="profile-pic">DS</div>
+          </div>
+        </header>
+
+        <!-- ======================================================= -->
+
+        <!-- DASHBOARD  ------------------------------------------>
+        <div id="page-dashboard" class="page-content active">
+          <div class="start">
+            <div class="welcome-text">
+              <span>
+                <p>Welcome back to your dashboard,</p>
+              </span>
+              <h1>Dr. Smith</h1>
+            </div>
+            <div class="header-actions">
+              <span id="current-date"></span>
+            </div>
+          </div>
+          <div class="content-grid">
+            <!-- CENTER PANEL------------------------------------------->
+            <section class="center-panel">
+              <div class="stats-container">
+                <div class="card stat-card">
+                  <h3>Active Courses</h3>
+                  <div class="value">3</div>
+                  <p class="subtext">Fall Semester</p>
+                </div>
+                <div class="card stat-card">
+                  <h3>Total Students</h3>
+                  <div class="value">142</div>
+                  <p class="subtext">Across all levels</p>
+                </div>
+                <div class="card stat-card highlight">
+                  <h3>Pending Marking</h3>
+                  <div class="value">12</div>
+                  <p class="subtext">Assignments</p>
+                </div>
+              </div>
+
+              <!-- Course List ------------------------------------------>
+              <div class="recent-activity">
+                <div class="section-header">
+                  <h2>Your Courses</h2>
+                  <a href="#" class="see-all">See all</a>
+                </div>
+                <div class="list-item">
+                  <div class="icon-box green">
+                    <i class="fa-solid fa-code"></i>
+                  </div>
+                  <div class="info">
+                    <h4>CSC 101</h4>
+                    <p>Intro to Computer Science</p>
+                  </div>
+                  <div class="status">
+                    <span class="badge success">48 Students</span>
+                  </div>
+                </div>
+                <div class="list-item">
+                  <div class="icon-box purple">
+                    <i class="fa-solid fa-database"></i>
+                  </div>
+                  <div class="info">
+                    <h4>CSC 204</h4>
+                    <p>Data Structures & Algos</p>
+                  </div>
+                  <div class="status">
+                    <span class="badge success">52 Students</span>
+                  </div>
+                </div>
+                <div class="list-item">
+                  <div class="icon-box orange">
+                    <i class="fa-solid fa-globe"></i>
+                  </div>
+                  <div class="info">
+                    <h4>CSC 312</h4>
+                    <p>Web Programming</p>
+                  </div>
+                  <div class="status">
+                    <span class="badge success">42 Students</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            <!-- RIGHT PANEL ------------------------------------------ -->
+            <aside class="right-panel">
+              <div class="quick-action-card">
+                <h3>Quick Announcement</h3>
+                <form>
+                  <label>Select Course</label>
+                  <select>
+                    <option>CSC 101</option>
+                    <option>CSC 204</option>
+                  </select>
+                  <label>Title</label>
+                  <input type="text" placeholder="e.g. Class Cancelled" />
+                  <label>Message</label>
+                  <textarea placeholder="Type your message here..."></textarea>
+                  <button type="submit" class="action-btn">Send Blast</button>
+                </form>
+              </div>
+            </aside>
+          </div>
+        </div>
+
+        <!--MY COURSES ------------------------------------------>
+        <div id="page-courses" class="page-content">
+          <div class="section-header">
+            <h2>My Courses</h2>
+            <button class="action-btn">
+              <i class="fa-solid fa-plus"></i> Add New Course
+            </button>
+          </div>
+          <div class="simple-grid">
+            <div class="card">
+              <h4>CSC 101: Intro to Computer Science</h4>
+              <p>48 Students</p>
+              <p>5 Materials, 2 Assignments</p>
+            </div>
+            <div class="card">
+              <h4>CSC 204: Data Structures & Algos</h4>
+              <p>52 Students</p>
+              <p>8 Materials, 4 Assignments</p>
+            </div>
+            <div class="card">
+              <h4>CSC 312: Web Programming</h4>
+              <p>42 Students</p>
+              <p>12 Materials, 6 Assignments</p>
+            </div>
+            <div class="card add-new-card">
+              <i class="fa-solid fa-plus"></i>
+              <p>Create New Course</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- STUDENTS ----------------------------->
+        <div id="page-students" class="page-content">
+          <div class="section-header">
+            <h2>Student Roster</h2>
+            <input
+              type="text"
+              class="search-bar"
+              placeholder="Search students..."
+            />
+          </div>
+          <div class="card">
+            <table class="styled-table">
+              <thead>
+                <tr>
+                  <th>Student ID</th>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Course</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>100234</td>
+                  <td>Alice Johnson</td>
+                  <td>alice.j@uni.edu</td>
+                  <td>CSC 101</td>
+                </tr>
+                <tr>
+                  <td>100235</td>
+                  <td>Bob Smith</td>
+                  <td>bob.s@uni.edu</td>
+                  <td>CSC 204</td>
+                </tr>
+                <tr>
+                  <td>100236</td>
+                  <td>Clara Williams</td>
+                  <td>clara.w@uni.edu</td>
+                  <td>CSC 312</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!--ASSIGNMENTS ------------------------------------------>
+        <div id="page-assignments" class="page-content">
+          <div class="section-header">
+            <h2>Assignments</h2>
+          </div>
+          <div class="card">
+            <h3>Pending Submissions to Mark (12)</h3>
+            <p>Content for marking assignments would go here.</p>
+          </div>
+        </div>
+
+        <!-- ABOUT ------------------------------------------>
+        <div id="page-about" class="page-content">
+          <div class="img-container">
+            <i class="fa-regular fa-user big"></i>
+          </div>
+          <div class="inner-tabs-nav">
+            <button class="inner-tab active" data-subtab="overview">
+              Overview
+            </button>
+            <button class="inner-tab" data-subtab="education">Education</button>
+            <button class="inner-tab" data-subtab="experience">
+              Experience
+            </button>
+            <button class="inner-tab" data-subtab="publications">
+              Publications
+            </button>
+          </div>
+          <div id="subtab-overview" class="inner-panel active">
+            <div class="card">
+              <div class="profile-header-flex">
+                <div class="profile-icon-container">
+                  <i class="fa-solid fa-user"></i>
+                </div>
+                <div>
+                  <h3>Dr. John Smith</h3>
+                  <p class="text-muted">Senior Lecturer, Computer Science</p>
+                  <p class="bio-text">
+                    Dr. Smith is a Senior Lecturer with over 10 years of
+                    experience in software engineering and AI. He is passionate
+                    about bridging the gap between theoretical computer science
+                    and practical industry application.
+                  </p>
+                </div>
+              </div>
+              <hr class="divider" />
+              <div class="contact-grid">
+                <div class="contact-item">
+                  <i class="fa-solid fa-envelope"></i> john.smith@unilex.edu
+                </div>
+                <div class="contact-item">
+                  <i class="fa-solid fa-phone"></i> +234 801 234 5678
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="subtab-education" class="inner-panel">
+            <div class="card">
+              <h3>Academic Background</h3>
+              <ul class="timeline-list">
+                <li>
+                  <h4>PhD in Computer Science</h4>
+                  <span class="date">2018 - University of Lagos</span>
+                  <p>
+                    Thesis: Optimizing Neural Networks for Low-Power Devices.
+                  </p>
+                </li>
+                <li>
+                  <h4>MSc in Data Systems</h4>
+                  <span class="date">2014 - Covenant University</span>
+                </li>
+                <li>
+                  <h4>BSc Computer Science</h4>
+                  <span class="date">2011 - University of Benin</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="subtab-experience" class="inner-panel">
+            <div class="card">
+              <h3>Professional History</h3>
+              <ul class="timeline-list">
+                <li>
+                  <h4>Senior Lecturer</h4>
+                  <span class="date">2020 - Present • UniLex</span>
+                </li>
+                <li>
+                  <h4>Lead Software Engineer</h4>
+                  <span class="date">2015 - 2020 • TechSolutions Ltd</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div id="subtab-publications" class="inner-panel">
+            <div class="card">
+              <h3>Selected Publications</h3>
+              <ul class="pub-list">
+                <li>
+                  <a href="#"
+                    >Smith, J. (2023). <em>AI in Education.</em> Journal of AI
+                    Research.</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    >Smith, J. & Doe, A. (2022).
+                    <em>Remote Learning Systems.</em> Int. Conf. on
+                    Education.</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

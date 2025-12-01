@@ -1,0 +1,143 @@
+/* ===== AUTH STYLES ===== */
+
+:root {
+  --color-border: #0000001a;
+  --color-l-background: #e3e3e3;
+  --color-primary: #8d0073;
+  --color-secondary: #d1ae6c;
+  --color-d-background: #101010f0;
+  --color-input-bg: #e7e7e7;
+  --color-button: #750262ae;
+}
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+#login,
+#signup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-l-background);
+  height: 100vh;
+}
+.auth-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90%;
+  width: 90%;
+  background: white;
+  border-radius: 12px;
+}
+
+.auth-container {
+  background-color: var(--white);
+  border-radius: 20px;
+  width: 100%;
+  flex: 1;
+  justify-items: center;
+}
+
+.auth-container h2 {
+  text-align: left;
+  margin-bottom: 1.5rem;
+  color: var(--color-primary);
+  font-size: 1.8rem;
+  width: 100%;
+  font-weight: 500;
+}
+
+.auth-form label {
+  display: block;
+  color: var(--dark);
+  font-size: 0.75rem;
+}
+
+.auth-form {
+  width: 70%;
+}
+.auth-form input {
+  width: 100%;
+  padding: 0.5rem 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: var(--color-input-bg);
+  transition: var(--transition);
+}
+
+.auth-form input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.auth-form button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: var(--color-button);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-bottom: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.auth-form button:hover {
+  background-color: var(--color-primary);
+  color: #ffffff;
+}
+
+.auth-form p a {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.auth-form p a:hover {
+  text-decoration: underline;
+}
+
+.login-image {
+  width: 100%;
+  flex: 1;
+  text-align: center;
+}
+.login-image img {
+  width: 60%;
+}
+.line {
+  width: 1px;
+  height: 70%;
+  background: var(--color-primary);
+}
+.forgor {
+  color: var(--color-secondary);
+  text-align: right;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.fir {
+  margin-bottom: 0.25rem;
+}
+.sec {
+  margin-bottom: 1rem;
+}
+.dont {
+  text-align: center;
+  font-size: 0.75rem;
+}
+span {
+  color: var(--color-secondary);
+}
+.new {
+  margin-bottom: 0.75rem;
+}
+.th {
+  margin-bottom: 2rem;
+}
