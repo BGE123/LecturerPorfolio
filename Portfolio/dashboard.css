@@ -540,3 +540,90 @@ header {
   display: block;
   margin-bottom: 5px;
 }
+/* =========================================
+   RESPONSIVE DESIGN (Mobile & Tablet)
+   ========================================= */
+
+/* 1. Mobile Menu Button (Hidden on Desktop) */
+.mobile-menu-btn {
+    display: none; /* Hide on large screens */
+    position: fixed;
+    top: 90px;
+    left: 15px;
+    z-index: 1001; /* Above sidebar */
+    background: white;
+    color: black;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+        transition: left 0.3s ease-in-out; /* This makes it slide */
+
+}
+.mobile-menu-btn.moved {
+    left: 275px; /* Sidebar width (260px) + original gap (15px) */
+}
+@media (max-width: 992px) {
+    /* 2. Show the Menu Button */
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    /* 3. Turn Sidebar into an "Off-Canvas" Drawer */
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 260px;
+        z-index: 1000;
+        transform: translateX(-100%); /* Hide sidebar off-screen left */
+        transition: transform 0.3s ease-in-out;
+        box-shadow: 4px 0 15px rgba(0,0,0,0.1);
+    }
+
+    /* Class used by JS to slide sidebar in */
+    .sidebar.open {
+        transform: translateX(0); 
+    }
+    
+    /* 5. Stack the Grid Layout (Right Panel goes below Center Panel) */
+    .content-grid {
+        grid-template-columns: 1fr; /* Single column */
+    }
+
+
+    /* --- TABLE SCROLL FIX (Critical for Students Page) --- */
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto; /* Adds scrollbar if table is too wide */
+        -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+        margin-bottom: 15px;
+        border-radius: 8px;
+        border: 1px solid #eee;
+    }
+    
+    table {
+        min-width: 600px; /* Force table to be wide enough to read */
+    }
+
+    .header-actions {
+        justify-content: space-between;
+    }
+    
+    /* 7. Stack Stats Cards */
+    .stats-container {
+        grid-template-columns: 1fr; /* One card per row on mobile */
+    }
+    
+    /* 8. Fix Profile/About Grid */
+    .about-grid {
+        grid-template-columns: 1fr; /* Stack profile card on top of details */
+    }
+    .inner-tabs-nav {
+        max-width: 100%; /* Full width on mobile */
+        grid-template-columns: repeat(2, 1fr); /* Two tabs per row */
+    }
+}
