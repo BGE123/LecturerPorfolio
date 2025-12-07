@@ -18,6 +18,9 @@
   </head>
 
   <body>
+    <button id="mobile-menu-btn" class="mobile-menu-btn">
+    <i class="fa-solid fa-bars"></i>
+</button>
     <div class="dashboard-container">
       <!-- SIDEBAR -->
       <aside class="sidebar">
@@ -135,21 +138,23 @@
             />
           </div>
           <div class="card">
-            <table class="styled-table">
-              <thead>
-                <tr>
-                  <th>Student ID</th>
-                  <th>Name</th>
-                  <th>Email</th>
-                  <th>Course</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td colspan="4">Loading students...</td>
-                </tr>
-              </tbody>
-            </table>
+            <div class="table-responsive">
+              <table class="styled-table">
+                <thead>
+                  <tr>
+                    <th>Student ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Course</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td colspan="4">Loading students...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
 
@@ -272,6 +277,6 @@
       </main>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
   </body>
 </html>
