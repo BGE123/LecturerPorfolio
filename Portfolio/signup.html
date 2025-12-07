@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup Page</title>
+    <link rel="stylesheet" href="auth.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- SIGNUP SECTION -->
+    <section id="signup" class="page-section">
+      <div class="auth-body">
+        <div class="login-image">
+          <img src="assets/login_pic3.svg" alt="" />
+        </div>
+        <div class="line"></div>
+        <div class="auth-container">
+          <form class="auth-form" id="signupForm">
+            <h2>Create Lecturer Account</h2>
+            
+            <div id="error-message" style="color: red; margin-bottom: 10px; display: none;"></div>
+            <div id="success-message" style="color: green; margin-bottom: 10px; display: none;"></div>
+            
+            <label>Full Name</label>
+            <input type="text" id="name" name="name" required class="new" />
+
+            <label>Email</label>
+            <input type="email" id="email" name="email" required class="new" />
+
+            <label>Password</label>
+            <input type="password" id="password" name="password" required class="new th" />
+
+            <button type="submit" class="primary-btn">Signup</button>
+            
+            <p class="dont">
+              Already have an account?
+              <span><a href="login.html">Login</a></span>
+            </p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      console.log('Signup page loaded');
+
+      document.getElementById('signupForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        console.log('Signup form submitted');
+
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const errorDiv = document.getElementById('error-message');
+        const successDiv = document.getElementById('success-message');
+
+        errorDiv.style.display = 'none';
+        successDiv.style.display = 'none';
+
+        console.log('Name:', name);
+        console.log('Email:', email);
+
+        const body = new URLSearchParams();
+        body.append('action', 'signup');
+        body.append('data', JSON.stringify({ name, email, password }));
+
+        try {
+          const response = await fetch('/cgi-bin/lecturer_api.py', {
+            method: 'POST',
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: body.toString()
+          });
+
+          console.log('Response status:', response.status);
+
+          const text = await response.text();
+          console.log('Raw response:', text);
+
+          let result;
+          try {
+            result = JSON.parse(text);
+            console.log('Parsed result:', result);
+          } catch (jsonError) {
+            console.error('JSON parse error:', jsonError);
+            errorDiv.textContent = 'Server returned invalid response.';
+            errorDiv.style.display = 'block';
+            return;
+          }
+
+          if (result.success) {
+            console.log('✅ Signup successful!');
+            successDiv.textContent = result.message + ' Redirecting to login...';
+            successDiv.style.display = 'block';
+
+            // Clear form
+            document.getElementById('signupForm').reset();
+
+            // Redirect to login after 2 seconds
+            setTimeout(() => {
+              window.location.href = 'login.html';
+            }, 2000);
+          } else {
+            console.log('❌ Signup failed:', result.message);
+            errorDiv.textContent = result.message;
+            errorDiv.style.display = 'block';
+          }
+        } catch (error) {
+          console.error('Fetch error:', error);
+          errorDiv.textContent = 'Connection error: ' + error.message;
+          errorDiv.style.display = 'block';
+        }
+      });
+    </script>
+  </body>
+</html>
