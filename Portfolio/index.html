@@ -3,138 +3,132 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Lecturer Portfolio</title>
+    <title>Dr. Smith | Lecturer Portfolio</title>
     <link rel="stylesheet" href="index.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
   <body>
-    <!-- HEADER SECTION -->
     <header id="site-header">
-      <div class="container">
-        <div class="logo">Lecturer Portfolio</div>
+      <div class="container nav-wrapper">
+        <div class="logo">
+            <span class="logo-icon"><i class="fa-solid fa-graduation-cap"></i></span>
+            Lecturer<span class="highlight">Portfolio</span>
+        </div>
         <nav class="nav">
-          <a href="index.html">Home</a>
-          <a href="login.html" class="btn">Login</a>
-          <a href="signup.html" class="btn">Signup</a>
+          <a href="#home" class="nav-link">Home</a>
+          <a href="#features" class="nav-link">Features</a>
+          <a href="#about" class="nav-link">About</a>
+          <a href="login.html" class="btn btn-outline">Login</a>
+          <a href="signup.html" class="btn btn-primary">Get Started</a>
         </nav>
+        <div class="mobile-toggle">
+            <i class="fa-solid fa-bars"></i>
+        </div>
       </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main>
-      <!-- HOME SECTION -->
-      <section id="home" class="page-section active">
-        <section id="hero">
+      <section id="home" class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <span class="badge">Academic Year 2025</span>
+                <h1>Empowering Students Through <span class="text-gradient">Digital Learning.</span></h1>
+                <p>
+                Access course modules, download lecture notes, view assessments, and stay updated with class announcements in one centralized platform.
+                </p>
+                <div class="cta-group">
+                    <a href="login.html" class="btn btn-primary btn-lg">Student Portal</a>
+                    <a href="#about" class="btn btn-text">Learn More &rarr;</a>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <strong>3</strong> <span>Active Courses</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>150+</strong> <span>Students</span>
+                    </div>
+                    <div class="stat-item">
+                        <strong>24/7</strong> <span>Resource Access</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-card card-1">
+                    <i class="fa-solid fa-code"></i>
+                    <span>Algorithms</span>
+                </div>
+                <div class="visual-card card-2">
+                    <i class="fa-solid fa-database"></i>
+                    <span>Data Structures</span>
+                </div>
+                <div class="visual-circle"></div>
+            </div>
+        </div>
+      </section>
+
+      <section id="features" class="features-section">
           <div class="container">
-            <h1>Welcome to the Lecturer Course & Class Management Portfolio</h1>
-            <p>
-              Organize course materials, manage classes, and share academic
-              content professionally.
-            </p>
-            <a href="login.html" class="primary-btn">Go to Dashboard</a>
+              <div class="section-header">
+                  <h2>Streamline Your Studies</h2>
+                  <p>Everything you need to succeed in my classes is right here.</p>
+              </div>
+              
+              <div class="features-grid">
+                  <div class="feature-card">
+                      <div class="icon-box blue">
+                        <i class="fa-solid fa-book-open"></i>
+                      </div>
+                      <h3>Course Materials</h3>
+                      <p>Download PDFs, slide decks, and past questions for CSC101, CSC204, and CSC312 instantly.</p>
+                  </div>
+
+                  <div class="feature-card">
+                      <div class="icon-box purple">
+                        <i class="fa-regular fa-calendar-check"></i>
+                      </div>
+                      <h3>Class Schedules</h3>
+                      <p>Stay on top of deadlines. View timetables for assessments, labs, and main lectures.</p>
+                  </div>
+
+                  <div class="feature-card">
+                      <div class="icon-box orange">
+                        <i class="fa-solid fa-bullhorn"></i>
+                      </div>
+                      <h3>Announcements</h3>
+                      <p>Get real-time updates regarding class cancellations, venue changes, or exam hints.</p>
+                  </div>
+              </div>
           </div>
-        </section>
       </section>
 
-      <!-- COURSE PAGES -->
-      <section id="csc101" class="page-section">
-        <div class="container">
-          <div class="course-page">
-            <h2>Course Overview</h2>
-            <p>
-              This course introduces foundational concepts in computer science
-              including algorithms, data, hardware, and problem-solving
-              techniques.
-            </p>
-
-            <h3>Weekly Breakdown</h3>
-            <ul class="list">
-              <li>Week 1 - Introduction to Computing</li>
-              <li>Week 2 - Number Systems</li>
-              <li>Week 3 - Algorithms & Flowcharts</li>
-              <li>Week 4 - Computer Hardware</li>
-              <li>Week 5 - Operating Systems</li>
-              <li>Week 6 - Programming Basics</li>
-            </ul>
-
-            <h3>Course Materials</h3>
-            <div class="materials">
-              <div class="mat-item">Lecture Note - Week 1</div>
-              <div class="mat-item">Lecture Slides - Hardware</div>
-              <div class="mat-item">Assignment 1 - Flowcharts</div>
-            </div>
+      <section id="about" class="about-section">
+          <div class="container about-wrapper">
+              <div class="about-content">
+                  <h2>About the Lecturer</h2>
+                  <p>With over 10 years of experience in Computer Science education, I am passionate about simplifying complex algorithms and helping students build robust software solutions.</p>
+                  <a href="#" class="btn btn-outline">View Full Publications</a>
+              </div>
           </div>
-        </div>
-      </section>
-
-      <section id="csc204" class="page-section">
-        <div class="container">
-          <div class="course-page">
-            <h2>Course Overview</h2>
-            <p>
-              This course covers essential data structures including arrays,
-              linked lists, trees, stacks, queues, and algorithmic thinking.
-            </p>
-
-            <h3>Weekly Breakdown</h3>
-            <ul class="list">
-              <li>Week 1 - Algorithm Analysis</li>
-              <li>Week 2 - Arrays & Linked Lists</li>
-              <li>Week 3 - Stacks & Queues</li>
-              <li>Week 4 - Trees</li>
-              <li>Week 5 - Graphs</li>
-              <li>Week 6 - Sorting Algorithms</li>
-            </ul>
-
-            <h3>Course Materials</h3>
-            <div class="materials">
-              <div class="mat-item">Data Structures Intro Slides</div>
-              <div class="mat-item">Tree Traversal Notes</div>
-              <div class="mat-item">Assignment - Sorting Algorithms</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="csc312" class="page-section">
-        <div class="container">
-          <div class="course-page">
-            <h2>Course Overview</h2>
-            <p>
-              This course teaches front-end and back-end web technologies
-              including HTML, CSS, JavaScript, HTTP, and server-side processes.
-            </p>
-
-            <h3>Weekly Breakdown</h3>
-            <ul class="list">
-              <li>Week 1 - Introduction to the Web</li>
-              <li>Week 2 - HTML5 Structure</li>
-              <li>Week 3 - CSS Styling</li>
-              <li>Week 4 - JavaScript Basics</li>
-              <li>Week 5 - Front-End Projects</li>
-              <li>Week 6 - Backend/CGI Concepts</li>
-            </ul>
-
-            <h3>Course Materials</h3>
-            <div class="materials">
-              <div class="mat-item">HTML5 Notes</div>
-              <div class="mat-item">CSS3 Styling Guide</div>
-              <div class="mat-item">Assignment - Build a Webpage</div>
-            </div>
-          </div>
-        </div>
       </section>
     </main>
 
-    <!-- FOOTER SECTION -->
     <footer id="site-footer">
-      <div class="container">
-        <p>&copy; 2025 Lecturer Portfolio System. All rights reserved.</p>
+      <div class="container footer-content">
+        <div class="footer-left">
+            <h3>LecturerPortfolio</h3>
+            <p>&copy; 2025. Built for Education.</p>
+        </div>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">University Portal</a>
+            <a href="#">Contact Support</a>
+        </div>
       </div>
     </footer>
   </body>
