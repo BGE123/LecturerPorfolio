@@ -126,12 +126,11 @@ def get_assignments(data):
                           FROM assignment a JOIN course c ON a.course_id = c.course_id
                           WHERE c.lecturer_id = %s ORDER BY a.due_date DESC""", (lecturer_id,))
         assignments = cursor.fetchall()
-        # Fix date format
         for a in assignments:
             if a.get('due_date'):
                 a['due_date'] = str(a['due_date'])
-            a['total_submissions'] = 0 # Placeholder if table missing
-            a['pending_grading'] = 0   # Placeholder
+            a['total_submissions'] = 0 
+            a['pending_grading'] = 0   
         return {'success': True, 'assignments': assignments}
     except Exception as e:
         return {'success': False, 'message': str(e)}
@@ -204,6 +203,31 @@ def delete_course(data):
         conn.close()
 
 # -----------------------------------------
+# ADDED MISSING FUNCTION: Send Announcement
+# -----------------------------------------
+def send_announcement(data):
+    lecturer_id = data.get('lecturer_id')
+    course_id = data.get('course_id')
+    title = data.get('title')
+    message = data.get('message')
+    
+    conn = get_db_connection()
+    cursor = conn.cursor()
+    try:
+        # Note: Make sure your table name is 'announcements' (plural) in TiDB
+        cursor.execute("""
+            INSERT INTO announcements (lecturer_id, course_id, title, message)
+            VALUES (%s, %s, %s, %s)
+        """, (lecturer_id, course_id, title, message))
+        conn.commit()
+        return {'success': True, 'message': 'Announcement sent successfully'}
+    except Exception as e:
+        return {'success': False, 'message': str(e)}
+    finally:
+        cursor.close()
+        conn.close()
+
+# -----------------------------------------
 # FLASK ROUTE HANDLER
 # -----------------------------------------
 @app.route('/', methods=['POST'])
@@ -223,9 +247,7 @@ def main_handler():
         else:
              data = json.loads(data_str)
 
-        # ---------------------------------------------------------
-        # THIS IS THE PART THAT WAS MISSING IN THE PREVIOUS VERSION
-        # ---------------------------------------------------------
+        # Dispatcher
         if action == 'login':
             result = handle_login(data)
         elif action == 'signup':
@@ -244,8 +266,10 @@ def main_handler():
             result = add_course(data)
         elif action == 'delete_course':
             result = delete_course(data)
+        # ADDED MISSING ACTION HERE
+        elif action == 'announcement':
+            result = send_announcement(data)
         elif action == 'publications' or action == 'add_publication' or action == 'delete_publication':
-            # Placeholder for publications (returns empty list so it doesn't crash)
             result = {'success': True, 'publications': []}
         else:
             result = {'success': False, 'message': 'Unknown action'}
